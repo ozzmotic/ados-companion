@@ -1,0 +1,1 @@
+This is a companion app for clinicians performing the ADOS assessment.
