@@ -1,34 +1,42 @@
 package goodwin.ados.adoscompanion;
 
+import android.os.Environment;
 import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Chronometer;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.List;
+import com.opencsv.CSVWriter;
 
 public class MainActivity extends ActionBarActivity {
 
     Chronometer mChronometer;
-    ArrayList<Pair> eventLog;
+    List<String[]> eventLog;
+    private static String TAG = "ADOS_companion";
+    private long strt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<Pair> eventLog = new ArrayList<Pair>();
+        eventLog = new ArrayList<>();
         mChronometer = (Chronometer) findViewById(R.id.chronometer);
-
     }
 
     public void startTimer(View v) {
-        mChronometer.setBase(SystemClock.elapsedRealtime());
+        strt = SystemClock.elapsedRealtime();
+        mChronometer.setBase(strt);
         mChronometer.start();
     }
 
@@ -39,13 +47,26 @@ public class MainActivity extends ActionBarActivity {
     public void stopTimer(View v) {
         mChronometer.stop();
 
+        // Save log
+        File path = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_DOCUMENTS);
+        File file = new File(path, "ADOS_log_" + strt + ".csv");
+
+        try {
+            CSVWriter writer = new CSVWriter(new FileWriter(file), ',');
+            writer.writeAll(eventLog);
+            writer.close();
+        } catch (IOException e) {
+            Log.e(TAG,"Exception: invalid file");
+        }
+
+        System.exit(0);
     }
 
     public void logEvent(View v) {
         String event = (String)v.getTag();
-        long time = getCurrentTime();
-        Pair p = Pair.create(time, event);
-        eventLog.add(p);
+        String time = String.valueOf(getCurrentTime());
+        eventLog.add(new String[] {event, time});
     }
 
     @Override
