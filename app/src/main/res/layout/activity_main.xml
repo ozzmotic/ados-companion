@@ -24,24 +24,114 @@
         android:layout_alignEnd="@+id/start_session"
         android:layout_alignStart="@+id/start_session" />
 
-    <Button
-        android:layout_width="wrap_content"
+    <ToggleButton
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Action 1"
-        android:id="@+id/action1"
+        android:textOn="Stop Freeplay"
+        android:textOff="Start Freeplay"
+        android:id="@+id/freeplay"
         android:onClick="logEvent"
-        android:tag="1"
+        android:tag="Freeplay"
         android:layout_below="@+id/end_session"
         android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="wrap_content"
+    <ToggleButton
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Action 2"
-        android:id="@+id/action2"
+        android:textOn="Stop Name"
+        android:textOff="Start Name"
+        android:id="@+id/name"
         android:onClick="logEvent"
-        android:tag="2"
-        android:layout_below="@+id/action1"
+        android:tag="Name"
+        android:layout_below="@+id/freeplay"
+        android:layout_alignParentStart="true" />
+
+    <ToggleButton
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textOn="Stop Rabbit/Car"
+        android:textOff="Start Rabbit/Car"
+        android:id="@+id/rabbit-car"
+        android:onClick="logEvent"
+        android:tag="Rabbit/Car"
+        android:layout_below="@+id/name"
+        android:layout_alignParentStart="true" />
+
+    <ToggleButton
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textOn="Stop Bubbles"
+        android:textOff="Start Bubbles"
+        android:id="@+id/bubbles"
+        android:onClick="logEvent"
+        android:tag="bubbles"
+        android:layout_below="@+id/rabbit-car"
+        android:layout_alignParentStart="true" />
+
+    <ToggleButton
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textOn="Stop balloon"
+        android:textOff="Start balloon"
+        android:id="@+id/balloon"
+        android:onClick="logEvent"
+        android:tag="balloon"
+        android:layout_below="@+id/bubbles"
+        android:layout_alignParentStart="true" />
+
+    <ToggleButton
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textOn="Stop social smile"
+        android:textOff="Start social smile"
+        android:id="@+id/social_smile"
+        android:onClick="logEvent"
+        android:tag="social smile"
+        android:layout_below="@+id/balloon"
+        android:layout_alignParentStart="true" />
+
+    <ToggleButton
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textOn="Stop peek-a-boo"
+        android:textOff="Start peek-a-boo"
+        android:id="@+id/peek-a-boo"
+        android:onClick="logEvent"
+        android:tag="peek-a-boo"
+        android:layout_below="@+id/social_smile"
+        android:layout_alignParentStart="true" />
+
+    <ToggleButton
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textOn="Stop imitation"
+        android:textOff="Start imitation"
+        android:id="@+id/imitation"
+        android:onClick="logEvent"
+        android:tag="imitation"
+        android:layout_below="@+id/peek-a-boo"
+        android:layout_alignParentStart="true" />
+
+    <ToggleButton
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textOn="Stop birthday"
+        android:textOff="Start birthday"
+        android:id="@+id/birthday"
+        android:onClick="logEvent"
+        android:tag="birthday"
+        android:layout_below="@+id/imitation"
+        android:layout_alignParentStart="true" />
+
+    <ToggleButton
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textOn="Stop snack"
+        android:textOff="Start snack"
+        android:id="@+id/snack"
+        android:onClick="logEvent"
+        android:tag="snack"
+        android:layout_below="@+id/birthday"
         android:layout_alignParentStart="true" />
 
     <Chronometer
@@ -51,4 +141,126 @@
         android:textSize="40sp"
         android:layout_above="@+id/end_session"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eye contact: examiner"
+        android:id="@+id/ec_examiner"
+        android:onClick="logBehavior"
+        android:tag="eyecontact_examiner"
+        android:layout_alignTop="@+id/freeplay"
+        android:layout_toEndOf="@+id/freeplay"
+        android:layout_marginStart="200dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eye contact: parent"
+        android:id="@+id/ec_parent"
+        android:onClick="logBehavior"
+        android:tag="eyecontact_examiner"
+        android:layout_alignStart="@+id/ec_examiner"
+        android:layout_below="@+id/ec_examiner"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Responsive social smile"
+        android:id="@+id/rss"
+        android:onClick="logBehavior"
+        android:tag="responsive_social_smile"
+        android:layout_alignStart="@+id/ec_examiner"
+        android:layout_below="@id/ec_parent"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Directed expressions"
+        android:id="@+id/directX"
+        android:onClick="logBehavior"
+        android:tag="Directed expressions"
+        android:layout_alignStart="@+id/ec_examiner"
+        android:layout_below="@id/rss"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gesture"
+        android:id="@+id/gesture"
+        android:onClick="logBehavior"
+        android:tag="Gesture"
+        android:layout_alignStart="@+id/ec_examiner"
+        android:layout_below="@id/directX"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Requesting"
+        android:id="@+id/requesting"
+        android:onClick="logBehavior"
+        android:tag="Requesting"
+        android:layout_alignStart="@+id/ec_examiner"
+        android:layout_below="@id/gesture"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Initiates Joint Attn"
+        android:id="@+id/init_JA"
+        android:onClick="logBehavior"
+        android:tag="Initiates Joint Attn"
+        android:layout_alignStart="@+id/ec_examiner"
+        android:layout_below="@id/requesting"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Follows eye gaze"
+        android:id="@+id/eye_gaze"
+        android:onClick="logBehavior"
+        android:tag="Follows eye gaze"
+        android:layout_alignStart="@+id/ec_examiner"
+        android:layout_below="@id/init_JA"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Language"
+        android:id="@+id/language"
+        android:onClick="logBehavior"
+        android:tag="Language"
+        android:layout_alignStart="@+id/ec_examiner"
+        android:layout_below="@id/eye_gaze"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sensory abnormality"
+        android:id="@+id/sensory"
+        android:onClick="logBehavior"
+        android:tag="Sensory abnormality"
+        android:layout_alignTop="@+id/ec_parent"
+        android:layout_alignEnd="@+id/end_session" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Repetitive behavior"
+        android:id="@+id/rep"
+        android:onClick="logBehavior"
+        android:tag="Repetitive behavior"
+        android:layout_below="@id/sensory"
+        android:layout_alignEnd="@id/end_session" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Anxiety"
+        android:id="@+id/anx"
+        android:onClick="logBehavior"
+        android:tag="Anxiety"
+        android:layout_below="@id/rep"
+        android:layout_alignEnd="@id/end_session" />
+
 </RelativeLayout>
