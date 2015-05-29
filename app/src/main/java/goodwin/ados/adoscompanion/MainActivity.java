@@ -28,6 +28,7 @@ public class MainActivity extends ActionBarActivity {
     List<String[]> eventLog;
     private static String TAG = "ADOS_companion";
     private long strt;
+    private boolean isSessionActive = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,8 @@ public class MainActivity extends ActionBarActivity {
         initializeButton( R.id.end_session, HapticFeedbackConstants.KEYBOARD_TAP );
 
         //Event list
-        int[] buttonIDs = new int[] {R.id.freeplay,R.id.name,R.id.rabbit_car,R.id.bubbles,
-            R.id.balloon,R.id.social_smile,R.id.peek_a_boo,R.id.imitation,R.id.birthday,R.id.snack,
+        int[] buttonIDs = new int[] {R.id.freeplay,R.id.name,R.id.rabbitcar,R.id.bubbles,
+            R.id.balloon,R.id.social_smile,R.id.peekaboo,R.id.imitation,R.id.birthday,R.id.snack,
             R.id.ec_examiner,R.id.ec_parent,R.id.rss,R.id.directX,R.id.gesture,R.id.requesting,
             R.id.init_JA,R.id.eye_gaze,R.id.language,R.id.sensory,R.id.rep,R.id.anx};
 
@@ -55,6 +56,7 @@ public class MainActivity extends ActionBarActivity {
         strt = SystemClock.elapsedRealtime();
         mChronometer.setBase(strt);
         mChronometer.start();
+        isSessionActive = true;
     }
 
     public long getCurrentTime() {
@@ -79,6 +81,7 @@ public class MainActivity extends ActionBarActivity {
             Log.e(TAG,"Exception: invalid file");
         }
 
+        isSessionActive = false;
         System.exit(0);
     }
 
@@ -144,7 +147,7 @@ public class MainActivity extends ActionBarActivity {
                 // perform the feedback
                 v.performHapticFeedback( feedbackType() );
             }
-            return true;
+            return false;
         }
     }
 }

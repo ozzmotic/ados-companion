@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:textOn="Stop Rabbit/Car"
         android:textOff="Start Rabbit/Car"
-        android:id="@+id/rabbit-car"
+        android:id="@+id/rabbitcar"
         android:onClick="logEvent"
         android:tag="Rabbit/Car"
         android:layout_below="@+id/name"
@@ -65,7 +65,7 @@
         android:id="@+id/bubbles"
         android:onClick="logEvent"
         android:tag="bubbles"
-        android:layout_below="@+id/rabbit-car"
+        android:layout_below="@+id/rabbitcar"
         android:layout_alignParentStart="true" />
 
     <ToggleButton
@@ -95,9 +95,9 @@
         android:layout_height="wrap_content"
         android:textOn="Stop peek-a-boo"
         android:textOff="Start peek-a-boo"
-        android:id="@+id/peek-a-boo"
+        android:id="@+id/peekaboo"
         android:onClick="logEvent"
-        android:tag="peek-a-boo"
+        android:tag="peekaboo"
         android:layout_below="@+id/social_smile"
         android:layout_alignParentStart="true" />
 
@@ -109,7 +109,7 @@
         android:id="@+id/imitation"
         android:onClick="logEvent"
         android:tag="imitation"
-        android:layout_below="@+id/peek-a-boo"
+        android:layout_below="@+id/peekaboo"
         android:layout_alignParentStart="true" />
 
     <ToggleButton
