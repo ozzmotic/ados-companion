@@ -57,6 +57,9 @@ public class MainActivity extends ActionBarActivity {
         mChronometer.setBase(strt);
         mChronometer.start();
         isSessionActive = true;
+        Button btn = ( Button ) findViewById( R.id.start_session );
+        btn.setClickable(false);
+        btn.setBackgroundColor(getResources().getColor( R.color.gray ));
     }
 
     public long getCurrentTime() {

@@ -1,9 +1,18 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:rowCount="7"
+    android:columnCount="3"
+    android:orientation="vertical" tools:context=".MainActivity">
+
+    <Chronometer
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chronometer"
+        android:textSize="40sp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -11,8 +20,8 @@
         android:text="Start Session"
         android:id="@+id/start_session"
         android:onClick="startTimer"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        android:background="@color/green"
+        android:textColor="@color/white"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -20,9 +29,8 @@
         android:text="End Session"
         android:id="@+id/end_session"
         android:onClick="stopTimer"
-        android:layout_below="@+id/start_session"
-        android:layout_alignEnd="@+id/start_session"
-        android:layout_alignStart="@+id/start_session" />
+        android:background="@color/red"
+        android:textColor="@color/white"/>
 
     <ToggleButton
         android:layout_width="150dp"
@@ -31,9 +39,7 @@
         android:textOff="Start Freeplay"
         android:id="@+id/freeplay"
         android:onClick="logEvent"
-        android:tag="Freeplay"
-        android:layout_below="@+id/end_session"
-        android:layout_alignParentStart="true" />
+        android:tag="Freeplay" />
 
     <ToggleButton
         android:layout_width="150dp"
@@ -42,9 +48,7 @@
         android:textOff="Start Name"
         android:id="@+id/name"
         android:onClick="logEvent"
-        android:tag="Name"
-        android:layout_below="@+id/freeplay"
-        android:layout_alignParentStart="true" />
+        android:tag="Name"/>
 
     <ToggleButton
         android:layout_width="150dp"
@@ -53,9 +57,7 @@
         android:textOff="Start Rabbit/Car"
         android:id="@+id/rabbitcar"
         android:onClick="logEvent"
-        android:tag="Rabbit/Car"
-        android:layout_below="@+id/name"
-        android:layout_alignParentStart="true" />
+        android:tag="Rabbit/Car" />
 
     <ToggleButton
         android:layout_width="150dp"
@@ -64,9 +66,7 @@
         android:textOff="Start Bubbles"
         android:id="@+id/bubbles"
         android:onClick="logEvent"
-        android:tag="bubbles"
-        android:layout_below="@+id/rabbitcar"
-        android:layout_alignParentStart="true" />
+        android:tag="bubbles" />
 
     <ToggleButton
         android:layout_width="150dp"
@@ -75,9 +75,7 @@
         android:textOff="Start balloon"
         android:id="@+id/balloon"
         android:onClick="logEvent"
-        android:tag="balloon"
-        android:layout_below="@+id/bubbles"
-        android:layout_alignParentStart="true" />
+        android:tag="balloon" />
 
     <ToggleButton
         android:layout_width="150dp"
@@ -86,9 +84,7 @@
         android:textOff="Start social smile"
         android:id="@+id/social_smile"
         android:onClick="logEvent"
-        android:tag="social smile"
-        android:layout_below="@+id/balloon"
-        android:layout_alignParentStart="true" />
+        android:tag="social smile" />
 
     <ToggleButton
         android:layout_width="150dp"
@@ -97,9 +93,7 @@
         android:textOff="Start peek-a-boo"
         android:id="@+id/peekaboo"
         android:onClick="logEvent"
-        android:tag="peekaboo"
-        android:layout_below="@+id/social_smile"
-        android:layout_alignParentStart="true" />
+        android:tag="peekaboo" />
 
     <ToggleButton
         android:layout_width="150dp"
@@ -108,9 +102,7 @@
         android:textOff="Start imitation"
         android:id="@+id/imitation"
         android:onClick="logEvent"
-        android:tag="imitation"
-        android:layout_below="@+id/peekaboo"
-        android:layout_alignParentStart="true" />
+        android:tag="imitation" />
 
     <ToggleButton
         android:layout_width="150dp"
@@ -119,9 +111,7 @@
         android:textOff="Start birthday"
         android:id="@+id/birthday"
         android:onClick="logEvent"
-        android:tag="birthday"
-        android:layout_below="@+id/imitation"
-        android:layout_alignParentStart="true" />
+        android:tag="birthday" />
 
     <ToggleButton
         android:layout_width="150dp"
@@ -130,17 +120,7 @@
         android:textOff="Start snack"
         android:id="@+id/snack"
         android:onClick="logEvent"
-        android:tag="snack"
-        android:layout_below="@+id/birthday"
-        android:layout_alignParentStart="true" />
-
-    <Chronometer
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/chronometer"
-        android:textSize="40sp"
-        android:layout_above="@+id/end_session"
-        android:layout_alignParentStart="true" />
+        android:tag="snack"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -148,10 +128,7 @@
         android:text="Eye contact: examiner"
         android:id="@+id/ec_examiner"
         android:onClick="logBehavior"
-        android:tag="eyecontact_examiner"
-        android:layout_alignTop="@+id/freeplay"
-        android:layout_toEndOf="@+id/freeplay"
-        android:layout_marginStart="200dp" />
+        android:tag="eyecontact_examiner" />
 
     <Button
         android:layout_width="wrap_content"
@@ -159,9 +136,7 @@
         android:text="Eye contact: parent"
         android:id="@+id/ec_parent"
         android:onClick="logBehavior"
-        android:tag="eyecontact_examiner"
-        android:layout_alignStart="@+id/ec_examiner"
-        android:layout_below="@+id/ec_examiner"/>
+        android:tag="eyecontact_examiner"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -169,9 +144,7 @@
         android:text="Responsive social smile"
         android:id="@+id/rss"
         android:onClick="logBehavior"
-        android:tag="responsive_social_smile"
-        android:layout_alignStart="@+id/ec_examiner"
-        android:layout_below="@id/ec_parent"/>
+        android:tag="responsive_social_smile"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -179,9 +152,7 @@
         android:text="Directed expressions"
         android:id="@+id/directX"
         android:onClick="logBehavior"
-        android:tag="Directed expressions"
-        android:layout_alignStart="@+id/ec_examiner"
-        android:layout_below="@id/rss"/>
+        android:tag="Directed expressions"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -189,9 +160,7 @@
         android:text="Gesture"
         android:id="@+id/gesture"
         android:onClick="logBehavior"
-        android:tag="Gesture"
-        android:layout_alignStart="@+id/ec_examiner"
-        android:layout_below="@id/directX"/>
+        android:tag="Gesture"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -199,9 +168,7 @@
         android:text="Requesting"
         android:id="@+id/requesting"
         android:onClick="logBehavior"
-        android:tag="Requesting"
-        android:layout_alignStart="@+id/ec_examiner"
-        android:layout_below="@id/gesture"/>
+        android:tag="Requesting"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -209,9 +176,7 @@
         android:text="Initiates Joint Attn"
         android:id="@+id/init_JA"
         android:onClick="logBehavior"
-        android:tag="Initiates Joint Attn"
-        android:layout_alignStart="@+id/ec_examiner"
-        android:layout_below="@id/requesting"/>
+        android:tag="Initiates Joint Attn"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -219,9 +184,7 @@
         android:text="Follows eye gaze"
         android:id="@+id/eye_gaze"
         android:onClick="logBehavior"
-        android:tag="Follows eye gaze"
-        android:layout_alignStart="@+id/ec_examiner"
-        android:layout_below="@id/init_JA"/>
+        android:tag="Follows eye gaze"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -229,9 +192,7 @@
         android:text="Language"
         android:id="@+id/language"
         android:onClick="logBehavior"
-        android:tag="Language"
-        android:layout_alignStart="@+id/ec_examiner"
-        android:layout_below="@id/eye_gaze"/>
+        android:tag="Language"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -239,9 +200,7 @@
         android:text="Sensory abnormality"
         android:id="@+id/sensory"
         android:onClick="logBehavior"
-        android:tag="Sensory abnormality"
-        android:layout_alignTop="@+id/ec_parent"
-        android:layout_alignEnd="@+id/end_session" />
+        android:tag="Sensory abnormality"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -249,9 +208,7 @@
         android:text="Repetitive behavior"
         android:id="@+id/rep"
         android:onClick="logBehavior"
-        android:tag="Repetitive behavior"
-        android:layout_below="@id/sensory"
-        android:layout_alignEnd="@id/end_session" />
+        android:tag="Repetitive behavior"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -259,8 +216,6 @@
         android:text="Anxiety"
         android:id="@+id/anx"
         android:onClick="logBehavior"
-        android:tag="Anxiety"
-        android:layout_below="@id/rep"
-        android:layout_alignEnd="@id/end_session" />
+        android:tag="Anxiety" />
 
-</RelativeLayout>
+</GridLayout>
