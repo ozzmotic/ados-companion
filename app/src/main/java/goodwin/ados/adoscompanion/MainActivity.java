@@ -20,10 +20,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Calendar;
 import com.opencsv.CSVWriter;
 
 public class MainActivity extends ActionBarActivity {
 
+    //TODO use Calendar to get human readable dates
     Chronometer mChronometer;
     List<String[]> eventLog;
     private static String TAG = "ADOS_companion";
@@ -57,6 +59,9 @@ public class MainActivity extends ActionBarActivity {
         mChronometer.setBase(strt);
         mChronometer.start();
         isSessionActive = true;
+
+
+
         Button btn = ( Button ) findViewById( R.id.start_session );
         btn.setClickable(false);
         btn.setBackgroundColor(getResources().getColor( R.color.gray ));
@@ -110,6 +115,7 @@ public class MainActivity extends ActionBarActivity {
     private void initializeButton(int btnId, int hapticId) {
         Button btn = ( Button ) findViewById( btnId );
         btn.setOnTouchListener( new HapticTouchListener(hapticId) );
+        btn.setSoundEffectsEnabled(false);
     }
 
     @Override
